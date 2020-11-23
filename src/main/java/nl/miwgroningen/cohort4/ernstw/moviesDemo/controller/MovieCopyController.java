@@ -24,10 +24,20 @@ public class MovieCopyController {
     @Autowired
     MovieCopyRepository movieCopyRepository;
 
-    //TODO werk niet
     @GetMapping("/movieCopy/add/{movieId}")
     protected String addMovieCopy(@PathVariable("movieId")Integer movieId) {
         Optional<Movie> movieBox = movieRepository.findById(movieId);
+        if (movieBox.isPresent()) {
+            MovieCopy movieCopy = new MovieCopy();
+            movieCopy.setMovie(movieBox.get());
+            movieCopyRepository.save(movieCopy);
+        }
+        return "redirect:/movie";
+    }
+
+    @GetMapping ("/movieCopy/add/t/{movieTitle}")
+    protected String addMovieCopyByTitle(@PathVariable("movieTitle") String movieTitle) {
+        Optional<Movie> movieBox = movieRepository.findByTitle(movieTitle);
         if (movieBox.isPresent()) {
             MovieCopy movieCopy = new MovieCopy();
             movieCopy.setMovie(movieBox.get());
