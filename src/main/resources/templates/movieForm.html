@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/movies.css" />
+    <title>Insert a new movie</title>
+</head>
+
+@TODO fix
+<header>
+    <img src="https://imgshare.io/image/png-clipart-film-reel-cinema-movie-time-s-food-photography-t.NJD6DQ">
+</header>
+
+<body>
+
+<main>
+
+    <h1>Insert a new movie</h1>
+    <form th:action="@{/movie/add}" th:object="${movie}" method="post">
+        <p>Name of the movie: <input type="text" th:field="*{title}" /></p>
+        <p>
+            Director:
+            <select th:field="*{director}">
+                <option th:each="director: ${allDirectors}" th:value="${director.directorId}"
+                        th:text="${director.directorName}">
+                </option></select>
+        </p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+    Main
+</main>
+
+<aside>
+    <p>
+        <a th:href="@{/movie}">Movie overview</a>
+    </p>
+    Sidebar
+</aside>
+
+<footer>
+    Copyright MovieTime
+</footer>
+
+</body>
+</html>
+
+
+
+

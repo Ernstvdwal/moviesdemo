@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/movies.css" />
+    <title>Everyday should be movie time</title>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Good to have you back at</h1>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/PCy2Xs1/unnamed.jpg" alt="unnamed" border="0" /></a>
+</div>
+
+<div class="topnav">
+    <a th:href="@{/director}">Directors overview</a></a>
+    <a th:href="@{/movie/add}">Add movie</a>
+</div>
+
+<!--<div class="row">-->
+<!--    <div class="leftcolumn">-->
+<!--        -->
+
+        <div class="center">
+            <h2>Our recommendations for this weekend!</h2>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Director</th>
+                    <th>Available copies</th>
+                    <th>Buy/rent new copy</th>
+                </tr>
+                <tr th:each="movie: ${allMovies}">
+                    <td th:text="${movie.movieId}" />
+                    <td th:text="${movie.title}" />
+                    <td th:text="${movie.director.directorName}"/>
+                    <td th:text="${movie.numberMovieCopies}" />
+                    <td><a th:href="@{/movieCopy/add/{movieId}(movieId=${movie.movieId})}">Add</a></td>
+                </tr>
+            </table>
+
+            <h3>Enjoy</h3>
+            <div> <a href="https://imgbb.com/">
+                <img src="https://i.ibb.co/GMFnfJt/3bf66ee5214cbd361855f0c79c1d7d8611-leo-toast-9-h473-w710.gif"
+                     alt="Have a good time" border="0"></a></div>
+
+            <div class="footer">
+                <p>Copyright MovieTime 2020 </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

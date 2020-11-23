@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="movies.css" />
+    <title>Director overview</title>
+</head>
+<body>
+<h1>Overview of existing Directors</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th># of movies</th>
+
+    </tr>
+    <tr th:each="directorDetail: ${allDirectors}">
+        <td th:text="${directorDetail.directorId}" />
+        <td th:text="${directorDetail.directorName}" />
+        <td th:text="${directorDetail.numberOfMovies}" />
+    </tr>
+</table>
+
+<h1>Create a new Director</h1>
+<form th:action="@{/director/add}" th:object="${director}" method="post">
+    <p>Name: <input type="text" th:field="*{directorName}" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+
+<p>
+    <a th:href="@{/movie}">Movie overview</a>
+</p>
+
+<div class="footer">
+    <p>Copyright MovieTime 2020 </p>
+</div>
+</body>
+</html>
