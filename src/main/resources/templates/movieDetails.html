@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/movies.css" />
-    <title><span th:text="${movie.title}" /> details</title>
+    <title th:text="@{${movie.title} + ' detail'}">Movie details</title>
 </head>
 <body>
 <h1><span th:text="${movie.title}" /> details</h1>
