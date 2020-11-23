@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/movies.css" />
+    <title><span th:text="${movie.title}" /> details</title>
 </head>
 <body>
+<h1><span th:text="${movie.title}" /> details</h1>
+<table>
+    <tr>
+        <td>Title</td>
+        <td th:text="${movie.title}" />
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td th:text="${movie.director.directorName}" />
+    </tr>
+</table>
+
+<p>
+    <a th:href="@{/movie}">Movie overview</a>
+</p>
 
 </body>
 </html>

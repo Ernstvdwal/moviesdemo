@@ -1,6 +1,6 @@
 package nl.miwgroningen.cohort4.ernstw.moviesDemo.controller;
 
-import nl.miwgroningen.cohort4.ernstw.moviesDemo.model.Director;
+
 import nl.miwgroningen.cohort4.ernstw.moviesDemo.model.Movie;
 import nl.miwgroningen.cohort4.ernstw.moviesDemo.repository.DirectorRepository;
 import nl.miwgroningen.cohort4.ernstw.moviesDemo.repository.MovieRepository;
@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 /**
  * @author Ernst van der Wal
@@ -30,6 +33,16 @@ public class MovieController {
     protected String showMovie(Model model) {
         model.addAttribute("allMovies", movieRepository.findAll());
         return "movieOverview";
+    }
+
+    @GetMapping("/movie/{movieTitle}")
+    protected String showBookDetails(Model model, @PathVariable("movieTitle") String movieTitle){
+        Optional<Movie> movieBox = movieRepository.findByTitle(movieTitle);
+        if (movieBox.isEmpty()) {
+            return "redirect:/movie";
+        }
+        model.addAttribute("movie", movieBox.get());
+        return "movieDetails";
     }
 
     @GetMapping("/movie/add")

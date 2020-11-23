@@ -29,11 +29,13 @@
                     <th>Buy/rent new copy</th>
                 </tr>
                 <tr th:each="movie: ${allMovies}">
+                    <td><a th:href="@{/movie/{movieTitle}(movieTitle=${movie.title})}" th:text="${movie.title}" /></td>
                     <td th:text="${movie.movieId}" />
                     <td th:text="${movie.title}" />
                     <td th:text="${movie.director.directorName}"/>
                     <td th:text="${movie.numberMovieCopies}" />
                     <td><a th:href="@{/movieCopy/add/{movieId}(movieId=${movie.movieId})}">Add</a></td>
+
                 </tr>
             </table>
 
