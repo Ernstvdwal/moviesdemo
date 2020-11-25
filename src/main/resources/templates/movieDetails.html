@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,16 @@
     <title th:text="@{${movie.title} + ' detail'}">Movie details</title>
 </head>
 <body>
+
+<div class="topnav">
+    <a th:href="@{/movie}">Home</a></a>
+    <a th:href="@{/director}">Directors overview</a></a>
+    <a th:href="@{/movie/add}">Add movie</a>
+    <a th:href="@{/logout}">Log out</a>
+    <p sec:authorize ="hasRole('ADMIN')"> <a th:href="@{/user/new}">Add User</a></p>
+</div>
+
+
 <h1><span th:text="${movie.title}" /> details</h1>
 <table>
     <tr>
@@ -18,10 +28,6 @@
         <td th:text="${movie.director.directorName}" />
     </tr>
 </table>
-
-<p>
-    <a th:href="@{/movie}">Movie overview</a>
-</p>
 
 </body>
 </html>

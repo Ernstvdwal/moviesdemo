@@ -1,11 +1,20 @@
 <!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Create a new user</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/movies.css" />
 </head>
 <body>
+<div class="topnav">
+    <a th:href="@{/movie}">Home</a></a>
+    <a th:href="@{/director}">Directors overview</a></a>
+    <a th:href="@{/movie/add}">Add movie</a>
+    <a th:href="@{/logout}">Log out</a>
+    <p sec:authorize ="hasRole('ADMIN')"> <a th:href="@{/user/new}">Add User</a></p>
+</div>
+
+
 <h1>Create a new user</h1>
 <form action="#" th:action="@{/user/new}" th:object="${user}" method="post">
     <p>Username: <input type="text" th:field="*{username}" /></p>

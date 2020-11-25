@@ -8,18 +8,12 @@
 
 <body>
 
-<div class="header">
-    <h1>Good to have you back!</h1>
-    <a href="https://imgbb.com/"><img src="https://i.ibb.co/PCy2Xs1/unnamed.jpg" alt="unnamed" border="0" /></a>
-</div>
-
 <div class="topnav">
+    <a th:href="@{/movie}">Home</a></a>
     <a th:href="@{/director}">Directors overview</a></a>
     <a th:href="@{/movie/add}">Add movie</a>
-    <p sec:authorize ="hasRole('ADMIN')">
-        <a th:href="@{/user/new}">Add User</a>
-    </p>
     <a th:href="@{/logout}">Log out</a>
+    <p sec:authorize ="hasRole('ADMIN')"> <a th:href="@{/user/new}">Add User</a></p>
 </div>
 
         <div class="center">

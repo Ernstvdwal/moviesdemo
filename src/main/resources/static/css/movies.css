@@ -5,46 +5,48 @@
 body {
     font-family: Arial;
     padding: 10px;
-    background: #f1f1f1;
+    background: #222b37;
     text-align: center;
+    color: white;
 }
 
 /* Header/Blog Title */
 .header {
     padding: 30px;
     text-align: center;
-    background: white;
+    background: #222b37;
 }
 
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #222b37;
 }
 
 /* Style the topnav links */
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 .table {
     text-align: center;
-
+    background-color: #222b37;
+    color: white;
 }
+
 /* Change color on hover */
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: #737070;
     color: black;
 }
 
 .center {
     text-align: center;
 }
-/*//TODO Fix?*/
 
 .table {
     text-align: center;
@@ -54,22 +56,6 @@ body {
 .footer {
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background: #222b37;
     margin-top: 20px;
 }
-/* gebruik ik nog niet
-/*!* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other *!*/
-/*@media screen and (max-width: 800px) {*/
-/*    .leftcolumn, .rightcolumn {*/
-/*        width: 100%;*/
-/*        padding: 0;*/
-/*    }*/
-/*}*/
-
-/*!* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other *!*/
-/*@media screen and (max-width: 400px) {*/
-/*    .topnav a {*/
-/*        float: none;*/
-/*        width: 100%;*/
-/*    }*/
-/*}*/
